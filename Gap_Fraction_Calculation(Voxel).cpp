@@ -13,17 +13,17 @@ int Y_cor;
 double temp;
 
 
-//Ã¿¸öÕ¤¸ñ±ß³¤ÓÐ¶à´ó 
+//æ¯ä¸ªæ …æ ¼è¾¹é•¿æœ‰å¤šå¤§ 
 double resolution = 1.0;
-//´æ´¢µãÔÆ 
+//å­˜å‚¨ç‚¹äº‘ 
 double pc[10000000][2];
-//Ö÷º¯Êý
+//ä¸»å‡½æ•°
 int main()
 {
-	//ÊäÈëµÄÔ­Ê¼µãÔÆÊý¾Ý£¨x,y,z£© 
+	//è¾“å…¥çš„åŽŸå§‹ç‚¹äº‘æ•°æ®ï¼ˆx,y,zï¼‰ 
 	ifstream input("C:\\Users\\PC\\Desktop\\input.txt");
 
-	//Êä³öµÄÕ¤¸ñÊôÐÔ 
+	//è¾“å‡ºçš„æ …æ ¼å±žæ€§ 
 	ofstream output_data_attribute("C:\\Users\\PC\\Desktop\\test\\output_data_attribute.txt"); 
 	int num = 0;
 	while(input>>x>>y>>z>>temp)
@@ -36,7 +36,7 @@ int main()
 		if(x < X_min)	X_min = x;
 		if(y < Y_min)	Y_min = y;
 	}
-	//¹Ø±ÕÎÄ¼þ
+	//å…³é—­æ–‡ä»¶
 	input.close();
 	
 	int X_length = ceil((X_max - X_min)/resolution);
@@ -51,12 +51,12 @@ int main()
 	output_data_attribute<<"The raster spatial resolution is "<<resolution<<endl;
 	output_data_attribute<<"The raster size is "<<X_length<<"*"<<Y_length<<endl; 
 	
-	//¹Ø±ÕÕ¤¸ñÊôÐÔÎÄ¼þ
+	//å…³é—­æ …æ ¼å±žæ€§æ–‡ä»¶
 	output_data_attribute.close();
 	
 	
 	
-	//Êä³öµÄÕ¤¸ñ 
+	//è¾“å‡ºçš„æ …æ ¼ 
 	ofstream output_data_mapping("C:\\Users\\PC\\Desktop\\test\\output_data_mapping.txt"); 
 	
 	double **GF_map;
@@ -99,9 +99,9 @@ int main()
 		output_data_mapping<<endl;
 	}	
 
-	output_data_mapping.close();//¹Ø±ÕÊä³öÕ¤¸ñ
+	output_data_mapping.close();//å…³é—­è¾“å‡ºæ …æ ¼
 	
-	double gf = count/(Y_length*X_length);
+	double gf = 1.0*count/(Y_length*X_length);
 	
 	cout<<"finished!"<<endl;
 	cout<<"The gap fraction at teh spatial resolution of "<<resolution<<"m is "<<gf<<endl;
