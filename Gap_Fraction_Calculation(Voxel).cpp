@@ -102,7 +102,7 @@ int main()
 
 	output_data_mapping.close();//关闭输出栅格
 
-	double gf = 1.0 * count / (Y_length * X_length);
+	double gf = 1 - 1.0 * count / (Y_length * X_length);
 
 	cout << "finished!" << endl;
 	cout << "The gap fraction at the spatial resolution of " << resolution << "m is " << gf << endl;
